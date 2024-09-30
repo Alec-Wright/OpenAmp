@@ -1,0 +1,10 @@
+torch~=2.1.2
+torchaudio~=2.1.2
+pandas~=2.2.2
+numpy~=1.26.4
+soundfile~=0.12.1
+librosa~=0.10.2.post1
+matplotlib~=3.9.0
+wandb~=0.17.2
+auraloss~=0.4.0
+tqdm~=4.66.4

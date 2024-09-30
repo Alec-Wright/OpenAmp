@@ -20,7 +20,7 @@ def clip_check(x):
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-o', '--output_loc', type=str, default=join('Data', 'Ibanez 2820-DI'),
+parser.add_argument('-o', '--output_loc', type=str, default=join('Data', 'Ibanez2820-DI'),
                     help='save location for compiled input data')
 parser.add_argument('-i', '--input_loc', type=str,
                     default=join('IDMT-SMT-GUITAR_V2', 'dataset4', 'Ibanez 2820'),
