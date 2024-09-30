@@ -1,3 +1,5 @@
+import os
+
 import soundfile as sf
 import numpy as np
 import argparse
@@ -34,6 +36,8 @@ args = parser.parse_args()
 if __name__ == '__main__':
 
     files = glob(join(args.input_loc,'**', '*.wav'), recursive=True)
+
+    os.makedirs('Data', exist_ok=True)
 
     audio_full = []
     for file in files:

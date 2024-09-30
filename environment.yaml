@@ -1,0 +1,16 @@
+name: open-amp-demo
+channels:
+  - conda-forge
+  - pytorch
+dependencies:
+  - pytorch::pytorch
+  - torchaudio
+  - pandas
+  - numpy
+  - librosa
+  - matplotlib
+  - wandb
+  - tqdm
+  - pip:
+      - auraloss
+      - soundfile
