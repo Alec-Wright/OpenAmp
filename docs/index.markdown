@@ -378,7 +378,7 @@ Input signals:
 </table>
 </div>
 
-#### 2. EGFxSet devices -- unseen during training
+#### 2. EGFxSet devices -- enrolled into pre-trained model using unseen data
 
 Input signals:
 <table>
