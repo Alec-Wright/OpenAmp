@@ -24,26 +24,26 @@ rm IDMT-SMT-GUITAR_V2.zip <br>
 
 install the conda environment from the environment.yaml (you must have the conda package manager installed already)
 
-'''
+```
 conda env create -f environment.yaml
 conda activate open-amp-demo
-'''
+```
 
 # Compile input audio files
 
 This goes through the downloaded clean guitar audio, trims silence and produces a single wav file for each of the guitars, in the 'Data' directory
 
-'''
+```
 python compile-input-data.py -o 'Data/Ibanez2820-DI' -i 'IDMT-SMT-GUITAR_V2/dataset4/Ibanez 2820'
 python compile-input-data.py -o 'Data/CareerSG-DI' -i 'IDMT-SMT-GUITAR_V2/dataset4/Career SG'
-'''
+```
 
 # Run Universal Amp Training
 
 This runs a basic version of training the universal amp model
 
-'''
+```
 python train_universal_amp.py
-'''
+```
 
 
