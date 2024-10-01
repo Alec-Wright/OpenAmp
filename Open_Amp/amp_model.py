@@ -1,5 +1,5 @@
 import json
-import models
+from Open_Amp import models
 import torch, torchaudio
 
 
@@ -68,8 +68,6 @@ def RNN_from_state_dict(json_data: dict):
 
     model.load_state_dict(state_dict)
     return model
-
-
 
 
 if __name__ == "__main__":

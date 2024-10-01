@@ -1,3 +1,5 @@
+import os
+
 import soundfile as sf
 import numpy as np
 import argparse
@@ -20,7 +22,7 @@ def clip_check(x):
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-o', '--output_loc', type=str, default=join('Data', 'Ibanez 2820-DI'),
+parser.add_argument('-o', '--output_loc', type=str, default=join('Data', 'Ibanez2820-DI'),
                     help='save location for compiled input data')
 parser.add_argument('-i', '--input_loc', type=str,
                     default=join('IDMT-SMT-GUITAR_V2', 'dataset4', 'Ibanez 2820'),
@@ -33,7 +35,12 @@ args = parser.parse_args()
 
 if __name__ == '__main__':
 
+    if not os.path.exists(args.input_loc):
+        raise FileNotFoundError(f'input location {args.input_loc} does not exist')
+
     files = glob(join(args.input_loc,'**', '*.wav'), recursive=True)
+
+    os.makedirs('Data', exist_ok=True)
 
     audio_full = []
     for file in files:
