@@ -63,9 +63,31 @@ classes:
             max-width: 100%; /* Makes sure the image doesn't overflow */
             height: auto;
         }
+
+        h2 {
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.25em;
+            text-align: left;
+        }
+
+        h4 {
+            text-align: left; 
+            font-size: 1.0em
+        }
+
+        h5 {
+            text-align: left; 
+            font-size: 0.75em
+        }
+
+
 </style>
 
-<h2 style="font-size: 1.5em" align="center">Open-Amp: Synthetic Data Framework for Audio Effect Foundation Models</h2>
+## Open-Amp: Synthetic Data Framework for Audio Effect Foundation Models
 <p style="font-size: 1.0em" align="center">
 Alec Wright<sup>1</sup>, Alistair Carson<sup>1</sup>,  and Lauri Juvela<sup>2</sup>
 </p>
@@ -75,8 +97,6 @@ Alec Wright<sup>1</sup>, Alistair Carson<sup>1</sup>,  and Lauri Juvela<sup>2</s
     <sup>2</sup> Department of Information and Communications Engineering (DICE), Aalto University, Espoo, Finland <br>
     </i>
 </p>
-<p style="font-size: 1.0em; text-align: center">
-Welcome to the accompanying web-page for our ICASSP '25 submission.</p>
 <div style="text-align: center; align-items: center">
     <a href="" 
         class="btn btn--primary btn--small"
@@ -90,15 +110,17 @@ Welcome to the accompanying web-page for our ICASSP '25 submission.</p>
     </a>
 </div>
 
-##### Abstract
-<p style="font-size: 0.75em">
+### Abstract
+<p style="text-align: left; font-size: 0.75em">
 This paper introduces Open-Amp, a synthetic data framework for generating large-scale and diverse audio effects data. Audio effects are relevant to many musical audio processing and Music Information Retrieval (MIR) tasks, such as modelling of analog audio effects, automatic mixing, tone matching and transcription. Existing audio effects datasets are limited in scope, usually including relatively few audio effects processors and a limited amount of input audio signals. Our proposed framework overcomes these issues, by crowdsourcing neural network emulations of guitar amplifiers and effects, created by users of open-source audio effects emulation software. This allows users of Open-Amp complete control over the input signals to be processed by the effects models, as well as providing high-quality emulations of hundreds of devices. Open-Amp can render audio online during training, allowing great flexibility in data augmentation. Our experiments show that using Open-Amp to train a guitar effects encoder achieves new state-of-the-art results on multiple guitar effects classification tasks. Furthermore, we train a one-to-many guitar effects model using Open-Amp, and  use it to emulate unseen analog effects via manipulation of it's learned latent space, indicating transferability to analog guitar effects data.
 </p>
 
 ### Audio effect emulation examples
 
 #### 1. OpenAmp devices seen during training
+<p style="text-align: left; font-size: 0.75em">
 Input signals:
+</p>
 <div class="table-container">
 <table>
   <thead>
@@ -118,7 +140,7 @@ Input signals:
 </table>
 </div>
 
-###### 1.1 EffectrodeBlackbirdClean 
+##### 1.1 EffectrodeBlackbirdClean 
 <div class="table-container">
 <table>
   <thead>
@@ -170,7 +192,7 @@ Input signals:
 </table>
 </div>
 
-###### 1.2 ZenDrive_BlackMagic_DriveKnob
+##### 1.2 ZenDrive_BlackMagic_DriveKnob
 <div class="table-container">
 <table>
   <thead>
@@ -222,7 +244,7 @@ Input signals:
 </table>
 </div>
 
-###### 1.3 Bogner_EcstasyBlue_GainKnob_cond-0.25
+##### 1.3 Bogner_EcstasyBlue_GainKnob_cond-0.25
 <div class="table-container">
 <table>
   <thead>
@@ -274,7 +296,7 @@ Input signals:
 </table>
 </div>
 
-###### 1.4 Colombo_Plexi_Knob_cond-0.50
+##### 1.4 Colombo_Plexi_Knob_cond-0.50
 <div class="table-container">
 <table>
   <thead>
@@ -326,7 +348,7 @@ Input signals:
 </table>
 </div>
 
-###### 1.5 SoundCity50_ThroneTorcher_DIRECT
+##### 1.5 SoundCity50_ThroneTorcher_DIRECT
 <div class="table-container">
 <table>
   <thead>
@@ -379,8 +401,9 @@ Input signals:
 </div>
 
 #### 2. EGFxSet devices -- enrolled into pre-trained model using unseen data
-
+<p style="font-size: 0.75em">
 Input signals:
+</p>
 <table>
   <thead>
     <tr>
@@ -400,7 +423,7 @@ Input signals:
 </tbody>
 </table>
 
-###### 2.1 Ibanez TubeScreamer Mini
+##### 2.1 Ibanez TubeScreamer Mini
 <div class="image-container">
 <figure style="width:10%">
     <img src="img/291825-71P1LHdAiGL._SL1500___30597.jpg" alt="TSMini">
@@ -426,22 +449,22 @@ Input signals:
     </tr>
     <tr>
       <th>Model</th>
-      <th>100% </th>
-      <th>10%</th>
-      <th>1% </th>
-      <th style="border-right: 1px solid gray">0.1% </th>
-      <th>100% </th>
-      <th>10%</th>
-      <th>1% </th>
-      <th style="border-right: 1px solid gray">0.1% </th>
-      <th>100% </th>
-      <th>10%</th>
-      <th>1% </th>
-      <th style="border-right: 1px solid gray">0.1% </th>
-      <th>100% </th>
-      <th>10%</th>
-      <th>1% </th>
-      <th>0.1% </th>
+      <th>~50 min. (100%)</th>
+      <th>~5 min. (10%)</th>
+      <th>~30 s (1%) </th>
+      <th style="border-right: 1px solid gray">~3 s (0.1%)</th>
+      <th>~50 min. (100%)</th>
+      <th>~5 min. (10%)</th>
+      <th>~30 s (1%) </th>
+      <th style="border-right: 1px solid gray">~3 s (0.1%)</th>
+      <th>~50 min. (100%)</th>
+      <th>~5 min. (10%)</th>
+      <th>~30 s (1%) </th>
+      <th style="border-right: 1px solid gray">~3 s (0.1%)</th>
+      <th>~50 min. (100%)</th>
+      <th>~5 min. (10%)</th>
+      <th>~30 s (1%) </th>
+      <th>~3 s (0.1%)</th>
     </tr>
   </thead>
   <tbody>
@@ -533,7 +556,7 @@ Input signals:
 </div>
 <br>
 
-###### 2.2 Proco RAT
+##### 2.2 Proco RAT
 <div class="image-container">
 <figure style="width:20%">
     <img src="img/procorat.jpg" alt="RAT">
@@ -561,22 +584,22 @@ Input signals:
     </tr>
     <tr>
       <th>Model</th>
-      <th>100% </th>
-      <th>10%</th>
-      <th>1% </th>
-      <th style="border-right: 1px solid gray">0.1% </th>
-      <th>100% </th>
-      <th>10%</th>
-      <th>1% </th>
-      <th style="border-right: 1px solid gray">0.1% </th>
-      <th>100% </th>
-      <th>10%</th>
-      <th>1% </th>
-      <th style="border-right: 1px solid gray">0.1% </th>
-      <th>100% </th>
-      <th>10%</th>
-      <th>1% </th>
-      <th>0.1% </th>
+      <th>~50 min. (100%)</th>
+      <th>~5 min. (10%)</th>
+      <th>~30 s (1%) </th>
+      <th style="border-right: 1px solid gray">~3 s (0.1%)</th>
+      <th>~50 min. (100%)</th>
+      <th>~5 min. (10%)</th>
+      <th>~30 s (1%) </th>
+      <th style="border-right: 1px solid gray">~3 s (0.1%)</th>
+      <th>~50 min. (100%)</th>
+      <th>~5 min. (10%)</th>
+      <th>~30 s (1%) </th>
+      <th style="border-right: 1px solid gray">~3 s (0.1%)</th>
+      <th>~50 min. (100%)</th>
+      <th>~5 min. (10%)</th>
+      <th>~30 s (1%) </th>
+      <th>~3 s (0.1%)</th>
     </tr>
   </thead>
   <tbody>
@@ -668,7 +691,7 @@ Input signals:
 </div>
 <br>
 
-###### 2.3 Boss Blues Driver BD-2
+##### 2.3 Boss Blues Driver BD-2
 <div class="image-container">
 <figure style="width:10%">
     <img src="img/26822-BOSSBD2__28872.jpg" alt="BD2">
@@ -695,22 +718,22 @@ Input signals:
     </tr>
     <tr>
       <th>Model</th>
-      <th>100% </th>
-      <th>10%</th>
-      <th>1% </th>
-      <th style="border-right: 1px solid gray">0.1% </th>
-      <th>100% </th>
-      <th>10%</th>
-      <th>1% </th>
-      <th style="border-right: 1px solid gray">0.1% </th>
-      <th>100% </th>
-      <th>10%</th>
-      <th>1% </th>
-      <th style="border-right: 1px solid gray">0.1% </th>
-      <th>100% </th>
-      <th>10%</th>
-      <th>1% </th>
-      <th>0.1% </th>
+      <th>~50 min. (100%)</th>
+      <th>~5 min. (10%)</th>
+      <th>~30 s (1%) </th>
+      <th style="border-right: 1px solid gray">~3 s (0.1%)</th>
+      <th>~50 min. (100%)</th>
+      <th>~5 min. (10%)</th>
+      <th>~30 s (1%) </th>
+      <th style="border-right: 1px solid gray">~3 s (0.1%)</th>
+      <th>~50 min. (100%)</th>
+      <th>~5 min. (10%)</th>
+      <th>~30 s (1%) </th>
+      <th style="border-right: 1px solid gray">~3 s (0.1%)</th>
+      <th>~50 min. (100%)</th>
+      <th>~5 min. (10%)</th>
+      <th>~30 s (1%) </th>
+      <th>~3 s (0.1%)</th>
     </tr>
   </thead>
   <tbody>
