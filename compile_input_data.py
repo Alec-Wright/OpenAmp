@@ -35,6 +35,9 @@ args = parser.parse_args()
 
 if __name__ == '__main__':
 
+    if not os.path.exists(args.input_loc):
+        raise FileNotFoundError(f'input location {args.input_loc} does not exist')
+
     files = glob(join(args.input_loc,'**', '*.wav'), recursive=True)
 
     os.makedirs('Data', exist_ok=True)

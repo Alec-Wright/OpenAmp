@@ -1,0 +1,7 @@
+*.pyc
+*.zip
+Data/*
+Results/*
+wandb/*
+IDMT-SMT-GUITAR_V2/*
+Proteus_Tone_Packs/*
