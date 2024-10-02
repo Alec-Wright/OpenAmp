@@ -428,6 +428,22 @@ In our experiments we froze all parameters in the pre-trained foundation model a
 - [Proco RAT](#22-proco-rat)
 - [Boss Blues Driver BD-2](#23-boss-blues-driver-bd-2)
 
+<br>
+<div class="image-container">
+<figure style="width:10%">
+    <img src="img/291825-71P1LHdAiGL._SL1500___30597.jpg" alt="TSMini">
+    <figcaption style="font-size: 0.5em">Image source: <a href="https://www.andertons.co.uk/ibanez-tube-screamer-mini-overdrive-pedal/" target="_blank" rel="noopener noreferrer">https://www.andertons.co.uk/ibanez-tube-screamer-mini-overdrive-pedal/</a></figcaption>
+</figure>
+<figure style="width:20%">
+    <img src="img/procorat.jpg" alt="RAT">
+    <figcaption style="font-size: 0.5em">Image source: <a href="https://www.gear4music.com/Guitar-and-Bass/Pro-Co-RAT-2-Distortion/CDA" target="_blank" rel="noopener noreferrer">https://www.gear4music.com/Guitar-and-Bass/Pro-Co-RAT-2-Distortion/CDA</a></figcaption>
+</figure>
+<figure style="width:10%">
+    <img src="img/26822-BOSSBD2__28872.jpg" alt="BD2">
+    <figcaption style="font-size: 0.5em">Image source: <a href="https://www.andertons.co.uk/boss-bd-2-blues-driver-pedal" target="_blank" rel="noopener noreferrer">https://www.andertons.co.uk/boss-bd-2-blues-driver-pedal</a></figcaption>
+</figure>
+</div>
+<br>
 Input signals (unseen during training) used to render the examples<sup>*</sup>:
 <table>
   <thead>
@@ -448,13 +464,8 @@ Input signals (unseen during training) used to render the examples<sup>*</sup>:
 </tbody>
 </table>
 <sup>*</sup>NB these are different to that of [Section 1](#1-openamp-devices-seen-during-training) to allow comparison with the target tone in the EGFxSet.
+
 ##### 2.1 Ibanez TubeScreamer Mini
-<div class="image-container">
-<figure style="width:10%">
-    <img src="img/291825-71P1LHdAiGL._SL1500___30597.jpg" alt="TSMini">
-    <figcaption style="font-size: 0.5em">Image source: <a href="https://www.andertons.co.uk/ibanez-tube-screamer-mini-overdrive-pedal/" target="_blank" rel="noopener noreferrer">https://www.andertons.co.uk/ibanez-tube-screamer-mini-overdrive-pedal/</a></figcaption>
-</figure>
-</div>
 <div class="table-container">
 <table>
   <thead>
@@ -579,17 +590,8 @@ Input signals (unseen during training) used to render the examples<sup>*</sup>:
   </tbody>
 </table>
 </div>
-<br>
 
 ##### 2.2 Proco RAT
-<div class="image-container">
-<figure style="width:20%">
-    <img src="img/procorat.jpg" alt="RAT">
-    <figcaption style="font-size: 0.5em">Image source: <a href="https://www.gear4music.com/Guitar-and-Bass/Pro-Co-RAT-2-Distortion/CDA" target="_blank" rel="noopener noreferrer">https://www.gear4music.com/Guitar-and-Bass/Pro-Co-RAT-2-Distortion/CDA</a></figcaption>
-</figure>
-</div>
-
-<br>
 <div class="table-container">
 <table>
   <thead>
@@ -714,16 +716,8 @@ Input signals (unseen during training) used to render the examples<sup>*</sup>:
   </tbody>
 </table>
 </div>
-<br>
 
 ##### 2.3 Boss Blues Driver BD-2
-<div class="image-container">
-<figure style="width:10%">
-    <img src="img/26822-BOSSBD2__28872.jpg" alt="BD2">
-    <figcaption style="font-size: 0.5em">Image source: <a href="https://www.andertons.co.uk/boss-bd-2-blues-driver-pedal" target="_blank" rel="noopener noreferrer">https://www.andertons.co.uk/boss-bd-2-blues-driver-pedal</a></figcaption>
-</figure>
-</div>
-<br>
 <div class="table-container">
 <table>
   <thead>
@@ -848,4 +842,3 @@ Input signals (unseen during training) used to render the examples<sup>*</sup>:
   </tbody>
 </table>
 </div>
-<br>
