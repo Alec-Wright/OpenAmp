@@ -3,6 +3,13 @@ This is the repository for the paper 'Open-Amp: Synthetic Data Framework for Aud
 
 Open-Amp is a framework for creating large scale and diverse audio effects data using crowd-sourced audio effects models. This repository shows basic usage of the package for training a universal amplifier model, as described in the paper.
 
+<div style="text-align: center">
+    <a href="https://alec-wright.github.io/OpenAmp/" 
+        class="btn btn--primary btn--small"
+        target="_blank" rel="noopener noreferrer">
+    🔊 Audio Examples
+    </a>
+</div>
 
 # Download amp models and clean guitar data
 
