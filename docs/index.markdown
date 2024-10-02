@@ -10,19 +10,19 @@ classes:
             display: flex;
             justify-content: space-between; /* Adjust spacing between images */
         }
-
+        
         /* Style for each figure element */
         figure {
             text-align: center;
             margin: 0 50px; /* Add some space between the images */
         }
-
+        
         /* Ensure images are responsive */
         img {
             max-width: 100%; /* Makes sure the image doesn't overflow */
             height: auto;
         }
-
+        
         /* Optional: Add caption styling */
         figcaption {
             font-style: italic;
@@ -30,97 +30,116 @@ classes:
             margin-top: 5px;
             text-align: center;
         }
-
+        
         .table-container {
             width: 100%;
             overflow-x: auto; /* Adds horizontal scrollbar if content exceeds width */
         }
-
+        
         table {
             width: 100%; /* Optional: Adjusts table width to fit container */
             border-collapse: collapse;
         }
-
+        
         th, td {
             text-align: center;
         }
-    
+        
         td {
             background-color: white;
         }
-
+        
         audio {
             width: 12em;
         }
-
+        
         .image-container {
             display: flex;
             justify-content: space-between; /* Adjust spacing between images */
         }
-
+        
         /* Ensure images are responsive */
         img {
             max-width: 100%; /* Makes sure the image doesn't overflow */
             height: auto;
         }
-
+        
         h2 {
-            font-size: 1.5em;
+            font-size: 1.7em;
             text-align: center;
         }
-
+        
         h3 {
-            font-size: 1.25em;
+            font-size: 1.4em;
             text-align: left;
         }
-
+        
         h4 {
-            text-align: left; 
+            text-align: left;
+            font-size: 1.1em
+        }
+        
+        h5 {
+            text-align: left;
             font-size: 1.0em
         }
-
-        h5 {
-            text-align: left; 
-            font-size: 0.75em
+        
+        body {
+          font-size: 0.9em;
         }
-
 
 </style>
 
 ## Open-Amp: Synthetic Data Framework for Audio Effect Foundation Models
-<p style="font-size: 1.0em" align="center">
-Alec Wright<sup>1</sup>, Alistair Carson<sup>1</sup>,  and Lauri Juvela<sup>2</sup>
-</p>
-<p style="text-align: center; font-size: 0.75em">
+<div style="text-align: center; font-size: 1.0em">
+    <p style="font-size: 1.1em">
+    Alec Wright<sup>1</sup>, Alistair Carson<sup>1</sup>,  and Lauri Juvela<sup>2</sup>
+    </p>
     <i>
-    <sup>1</sup><a href="https://www.acoustics.ed.ac.uk/" target="_blank" rel="noopener noreferrer">Acoustics and Audio Group</a>, University of Edinburgh, Edinburgh, UK<br>
-    <sup>2</sup> Department of Information and Communications Engineering (DICE), Aalto University, Espoo, Finland <br>
+        <sup>1</sup><a href="https://www.acoustics.ed.ac.uk/" target="_blank" rel="noopener noreferrer">Acoustics and Audio Group</a>, University of Edinburgh, Edinburgh, UK<br>
+        <sup>2</sup> Department of Information and Communications Engineering (DICE), Aalto University, Espoo, Finland <br>
     </i>
-</p>
-<div style="text-align: center; align-items: center">
+<br>
     <a href="" 
-        class="btn btn--primary btn--small"
+        class="btn btn--primary btn--large"
         target="_blank" rel="noopener noreferrer">
     🗞️ Paper
     </a>
     <a href="https://github.com/Alec-Wright/OpenAmp" 
-        class="btn btn--primary btn--small"
+        class="btn btn--primary btn--large"
         target="_blank" rel="noopener noreferrer">
     </> Code
     </a>
 </div>
-
 ### Abstract
-<p style="text-align: left; font-size: 0.75em">
 This paper introduces Open-Amp, a synthetic data framework for generating large-scale and diverse audio effects data. Audio effects are relevant to many musical audio processing and Music Information Retrieval (MIR) tasks, such as modelling of analog audio effects, automatic mixing, tone matching and transcription. Existing audio effects datasets are limited in scope, usually including relatively few audio effects processors and a limited amount of input audio signals. Our proposed framework overcomes these issues, by crowdsourcing neural network emulations of guitar amplifiers and effects, created by users of open-source audio effects emulation software. This allows users of Open-Amp complete control over the input signals to be processed by the effects models, as well as providing high-quality emulations of hundreds of devices. Open-Amp can render audio online during training, allowing great flexibility in data augmentation. Our experiments show that using Open-Amp to train a guitar effects encoder achieves new state-of-the-art results on multiple guitar effects classification tasks. Furthermore, we train a one-to-many guitar effects model using Open-Amp, and  use it to emulate unseen analog effects via manipulation of it's learned latent space, indicating transferability to analog guitar effects data.
-</p>
 
-### Audio effect emulation examples
+
+### One-to-many audio effect emulation
+In the paper we proposed using the OpenAmp dataset to train a one-to-many guitar effect emulation model. 
+We used a temporal convolutional network (TCN) architecture and conditioned it on a learnable look-up table of embeddings. The model learns 
+one embedding vector per (virtual) amp or pedal in the OpenAmp dataset, so at inference we can render a specific guitar tone by selecting the 
+relevant embedding from the look-up table and processing audio through the TCN. This also allows us to enrol unseen analog devices into the pre-trained one-to-many 
+model by learning a new embedding within the existing space. In this demo we show audio examples of:
+
+- [OpenAmp devices seen during training](#1-openamp-devices-seen-during-training)
+- [Unseen analog devices](#2-egfxset-devices----enrolled-into-pre-trained-model-using-unseen-data)
+
 
 #### 1. OpenAmp devices seen during training
-<p style="text-align: left; font-size: 0.75em">
-Input signals:
-</p>
+The tables below contain audio examples from 5 virtual devices within the OpenAmp dataset (seen during training):
+- [EffectrodeBlackbirdClean (PedalPack4)](#11-effectrodeblackbirdclean-pedalpack4)
+- [ZenDrive_BlackMagic_DriveKnob (PedalPack2)](#12-zendrive_blackmagic_driveknob-pedalpack2)
+- [Bogner_EcstasyBlue_GainKnob_cond-0.25 (PedalPack2)](#13-bogner_ecstasyblue_gainknob_cond-025-pedalpack2)
+- [Colombo_Plexi_Knob_cond-0.50 (PedalPack2)](#14-colombo_plexi_knob_cond-050-pedalpack2)
+- [SoundCity50_ThroneTorcher_DIRECT (AmpPack2)](#15-soundcity50_thronetorcher_direct-amppack2)
+
+For each device we can compare rendered audio output outputs from the proposed one-to-many models (Emb-16, Emb-64 and Emb-64), 
+a baseline 1-to-1 TCN model, and the target tone rendered from the OpenAmp set. 
+NB the 5 devices were selected (and ordered below) based on the minimum, 25th percentile, median, 75th percentile and maximum test loss of the Emb-64 model to show the spread 
+of modeling capabilities. The test losses are shown in Table III in the paper.
+
+Clean input signals (unseen during training) used to render the examples:
 <div class="table-container">
 <table>
   <thead>
@@ -140,7 +159,7 @@ Input signals:
 </table>
 </div>
 
-##### 1.1 EffectrodeBlackbirdClean 
+##### 1.1 EffectrodeBlackbirdClean (PedalPack4)
 <div class="table-container">
 <table>
   <thead>
@@ -192,7 +211,7 @@ Input signals:
 </table>
 </div>
 
-##### 1.2 ZenDrive_BlackMagic_DriveKnob
+##### 1.2 ZenDrive_BlackMagic_DriveKnob (PedalPack2)
 <div class="table-container">
 <table>
   <thead>
@@ -244,7 +263,7 @@ Input signals:
 </table>
 </div>
 
-##### 1.3 Bogner_EcstasyBlue_GainKnob_cond-0.25
+##### 1.3 Bogner_EcstasyBlue_GainKnob_cond-0.25 (PedalPack2)
 <div class="table-container">
 <table>
   <thead>
@@ -296,7 +315,7 @@ Input signals:
 </table>
 </div>
 
-##### 1.4 Colombo_Plexi_Knob_cond-0.50
+##### 1.4 Colombo_Plexi_Knob_cond-0.50 (PedalPack2)
 <div class="table-container">
 <table>
   <thead>
@@ -348,7 +367,7 @@ Input signals:
 </table>
 </div>
 
-##### 1.5 SoundCity50_ThroneTorcher_DIRECT
+##### 1.5 SoundCity50_ThroneTorcher_DIRECT (AmpPack2)
 <div class="table-container">
 <table>
   <thead>
@@ -401,9 +420,15 @@ Input signals:
 </div>
 
 #### 2. EGFxSet devices -- enrolled into pre-trained model using unseen data
-<p style="font-size: 0.75em">
-Input signals:
-</p>
+In [Section 2](#2-egfxset-devices--enrolled-into-pre-trained-model-using-unseen-data) we explore the task of enrolling unseen analog effects into 
+the learned embedding space of the foundation one-to-many model. Here we used data from the [EGFxSet](https://egfxset.github.io/) dataset. 
+This consists of ~1 hour of single guitar notes processed through various analog effects devices. 
+In our experiments we froze all parameters in the pre-trained foundation model and learned a new embedding for three analog effects pedals (unseen during training):
+- [Ibanez TubeScreamer Mini](#21-ibanez-tubescreamer-mini)
+- [Proco RAT](#22-proco-rat)
+- [Boss Blues Driver BD-2](#23-boss-blues-driver-bd-2)
+
+Input signals (unseen during training) used to render the examples<sup>*</sup>:
 <table>
   <thead>
     <tr>
@@ -422,7 +447,7 @@ Input signals:
     </tr>
 </tbody>
 </table>
-
+<sup>*</sup>NB these are different to that of [Section 1](#1-openamp-devices-seen-during-training) to allow comparison with the target tone in the EGFxSet.
 ##### 2.1 Ibanez TubeScreamer Mini
 <div class="image-container">
 <figure style="width:10%">
