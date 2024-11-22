@@ -53,4 +53,19 @@ This runs a basic version of training the universal amp model
 python train_universal_amp.py
 ```
 
+# Use Pre-Trained Amp Model
+
+This is an example of loading a pre-trained universal amp model, trained using OpenAmp, from a checkpoint and running inference on some input guitar audio
+
+```bash
+python run_uni_amp.py
+```
+
+# Use Pre-Trained Fx-Encoder
+
+This is an example of loading a pre-trained Fx-Encoder, trained using OpenAmp, from a checkpoint and extracting encodings from data
+
+```bash
+python run_fx_enc.py
+```
 
