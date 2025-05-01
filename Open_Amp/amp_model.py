@@ -70,6 +70,12 @@ class AmpModel(torch.nn.Module):
         return
 
     def forward(self, x, cond=None):
+        '''
+
+        :param x: dims (batch, time, channels)
+        :param cond: scalar
+        :return:
+        '''
         if self.model_class == 'SimpleRNN':
             if self.cond:
                 if cond is not None:
@@ -196,23 +202,21 @@ if __name__ == "__main__":
 
     clip, fs = torchaudio.load('test/guitar-in.wav')
 
-    # model_no_gain = AmpModel('test/BlackstarHT40_AmpHighGain.json', 'BlackstarHT40')
-    # out = model_no_gain(clip.unsqueeze(2))
-    # torchaudio.save('test/guitar-out.wav', out.squeeze(2).detach(), fs)
+    model_no_gain = AmpModel('test/BlackstarHT40_AmpHighGain.json', 'BlackstarHT40')
+    out = model_no_gain(clip.unsqueeze(2))
+    torchaudio.save('test/guitar-out.wav', out.squeeze(2).detach(), fs)
 
-    model = AmpModel('../NAM/Vox AC15/Vox AC15CH Crystal Clean TB.nam', 'Vox AC15')
-    out = model(clip.unsqueeze(2))
+    model_nam = AmpModel('../NAM/Vox AC15/Vox AC15CH Crystal Clean TB.nam', 'Vox AC15')
+    out = model_nam(clip.unsqueeze(2))
     torchaudio.save('test/guitar-out.wav', out.T.detach(), fs)
 
-    # torchaudio.save('test/guitar-out.wav', out.squeeze(2).detach(), fs)
-    #
-    # model_gain = AmpModel('test/SLO_Crunch_GainKnob.json', 'SLO_Crunch')
-    #
-    # out = model_gain(clip.unsqueeze(2), 0)
-    # torchaudio.save('test/guitar-out_lowgain.wav', out.squeeze(2).detach(), fs)
-    #
-    # out = model_gain(clip.unsqueeze(2))
-    # torchaudio.save('test/guitar-out_midgain.wav', out.squeeze(2).detach(), fs)
-    #
-    # out = model_gain(clip.unsqueeze(2), 1)
-    # torchaudio.save('test/guitar-out_highgain.wav', out.squeeze(2).detach(), fs)
+    model_gain = AmpModel('test/SLO_Crunch_GainKnob.json', 'SLO_Crunch')
+
+    out = model_gain(clip.unsqueeze(2), 0)
+    torchaudio.save('test/guitar-out_lowgain.wav', out.squeeze(2).detach(), fs)
+
+    out = model_gain(clip.unsqueeze(2))
+    torchaudio.save('test/guitar-out_midgain.wav', out.squeeze(2).detach(), fs)
+
+    out = model_gain(clip.unsqueeze(2), 1)
+    torchaudio.save('test/guitar-out_highgain.wav', out.squeeze(2).detach(), fs)
