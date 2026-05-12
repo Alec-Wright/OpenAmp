@@ -1,11 +1,33 @@
 import pandas as pd
 from os.path import join
 import numpy as np
-from Open_Amp import amp_model
+from . import amp_model
 import torchaudio
 import soundfile
 import os
 import torch
+
+
+def get_or_create_device_split(device_list, split_cfg, cond_res=5):
+    """Return (train_devs, test_devs) DataFrames, generating and saving them if not already on disk."""
+    seed = split_cfg['seed']
+    n_test = split_cfg['n_test']
+    split_dir = os.path.join(split_cfg['save_loc'], f'split_{seed}')
+
+    train_path = os.path.join(split_dir, 'train_index.csv')
+    test_path = os.path.join(split_dir, 'test_index.csv')
+
+    if os.path.isfile(train_path) and os.path.isfile(test_path):
+        print(f'Loading existing device split from {split_dir}')
+        return pd.read_csv(train_path, index_col=0), pd.read_csv(test_path, index_col=0)
+
+    os.makedirs(split_dir, exist_ok=True)
+    rng = np.random.default_rng(seed)
+    shuffled = rng.permutation(list(device_list))
+    train_devs = get_dev_table(split_dir, shuffled[:-n_test], 'train_index', cnd_res=cond_res)
+    test_devs = get_dev_table(split_dir, shuffled[-n_test:], 'test_index', cnd_res=cond_res)
+    print(f'Saved new device split to {split_dir}')
+    return train_devs, test_devs
 
 
 def get_dev_table(save_loc, model_list, save_name, cnd_res=5):

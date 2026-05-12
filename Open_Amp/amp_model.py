@@ -1,7 +1,7 @@
 import copy
 import json
 import os
-from Open_Amp import models
+from . import models
 import torch, torchaudio
 from nam.models.wavenet import WaveNet
 from typing import Dict
